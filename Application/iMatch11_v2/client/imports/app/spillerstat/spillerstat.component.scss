@@ -1,0 +1,99 @@
+//Main
+$color1 : #222; //sort
+$color2 : #ddd; //grå
+$color3 : #fff; //hvid
+$opacity : 0.8;
+
+.stat{
+  margin-left: 7px;
+}
+
+//vælg stat
+
+.vaelgstat{
+  margin-bottom: 7px;
+}
+
+.inputstat{
+  width:250px;
+  float:right;
+  border-color: $color3;
+  background-color: $color1;
+  color: $color3;
+  opacity: $opacity;
+}
+::-webkit-input-placeholder{
+  color: $color3;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $color3;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $color3;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $color3;
+}
+
+.select{
+  padding: 8px;
+  border-radius: 5px;
+  background-color: $color1;
+  color: $color3;
+  opacity: $opacity;
+}
+
+//table
+.addicon{
+  color: #fff;
+  background-color:#5d5d5e;
+}
+.firstcol {
+  text-align: left;
+  width: 250px;
+  max-width: 250px;
+  min-width: 250px;
+}
+.tftable{
+  color:#fff;
+  background-color:#5d5d5e;
+  width: 80vw;
+  min-width: 500px;
+  cursor: pointer;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+.tblheader1{
+  text-align: center;
+  border-right-style:solid;
+  border-right-width: 1px;
+  border-right-color: rgba(217, 217, 217,0.1);
+}
+.tblheader2{
+  border-right-style:solid;
+  border-right-width: 1px;
+  border-right-color: rgba(217, 217, 217,0.1);
+}
+.tblrow{
+  border-right-style:solid;
+  border-right-width: 1px;
+  border-right-color: rgba(217, 217, 217,0.1);
+}
+.colbody tr td {
+  border-top-style:solid;
+  border-top-width: 1px;
+  border-top-color: rgba(217, 217, 217,0.1);
+}
+//label
+.btn {
+    border-color:#919191;
+    margin-top: 7px;
+    background: $color1;
+    color: $color3;
+    opacity: $opacity;
+    cursor: pointer;
+}
+.btn:hover {
+    background:$color2;
+    color: $color1;
+}

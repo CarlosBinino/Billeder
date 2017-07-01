@@ -1,0 +1,137 @@
+//Main
+$color1 : #222; //sort
+$color2 : #ddd; //grå
+$color3 : #fff; //hvid
+$opacity : 0.8;
+
+//VaelgSpil
+.VaelgSpil{
+  color: $color3;
+  min-width: 20vw;;
+}
+
+.VaelgSpil hr{
+  color: $color3;
+}
+.buttonVaelgSpil{
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 7px;
+  color: $color3;
+  opacity: 0.8;
+  background-color: $color1;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+//label
+.btnminespil{
+  margin-left: 7px;
+}
+.headerminespil{
+  margin-left: 7px;
+  color: $color3;
+}
+
+.btn {
+    border-color:#919191;
+    margin-top: 5px;
+    background: $color1;
+    color: $color3;
+    opacity: $opacity;
+    cursor: pointer;
+}
+.btn:hover {
+    background:$color2;
+    color: $color1;
+}
+//Table
+.tableskal{
+  background-color:#5d5d5e;
+  border-radius: 5px;
+  opacity: 0.8;
+  min-width: 500px;
+  height: 100vh;
+  width: 60vw;
+}
+
+.tftable{
+  cursor: pointer;
+  color:$color3;
+  width: 100%;
+}
+.colhead2 th {
+  padding: 3px 7px;
+  border-bottom-style:solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(217, 217, 217,0.1);
+}
+.colbody td {
+  padding: 7px;
+}
+
+//Mine Spil
+.Minespil{
+  width: 100%;
+  height: 100vh;
+}
+@media(min-width:768px) {
+  .boks{
+    width:80vw;
+  }
+}
+
+.boks{
+  width: 20vw;
+  background-color: $color1;
+  color: $color3;
+  padding: 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin-bottom: 7px;
+  margin-left: 7px;
+  border-radius: 7px;
+  opacity: 0.9;
+
+  .boksboby p {
+    padding: 1px;
+    margin-bottom: 2px;
+  }
+  .boksboby hr {
+      padding: 1px;
+      margin-bottom: 2px;
+    }
+
+  .boksheaderA{
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    background-color: #F6C362;
+    padding: 2px 16px;
+  }
+  .boksheaderV{
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    background-color: #67B252;
+    padding: 2px 16px;
+  }
+  .boksheaderT{
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    background-color: #990703;
+    padding: 2px 16px;
+  }
+}
+.boks hr{
+  border-color:#fff;
+}
+
+.boks:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+//Lobbytable div
+.lobbyTable{
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  margin-left: 7px;
+}

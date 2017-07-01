@@ -1,0 +1,29 @@
+<div>
+    <h3 class="header">Opret bruger</h3>
+
+    <div>
+      <form [formGroup]="signupForm" #f="ngForm" (ngSubmit)="signup()"
+            layout="column" layout-fill layout-padding layout-margin>
+
+        <input class="buttonuser" type="email" placeholder="Email"></input>
+        <input class="buttonuser" type="password" placeholder="Password"></input>
+
+        <div >
+          <button class="buttonuser" type="button" type="submit" (click)="signup()">Opret bruger</button>
+        </div>
+      </form>
+
+      <div [hidden]="error == ''">
+        <md-toolbar >
+          <p >{{ error }}</p>
+        </md-toolbar>
+      </div>
+
+      <hr>
+
+      <div >
+        <button class="buttonuser" type="button" [routerLink]="['/login']">Allerede bruger?</button>
+      </div>
+    </div>
+
+</div>

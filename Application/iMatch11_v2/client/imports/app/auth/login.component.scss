@@ -1,0 +1,21 @@
+$color1 : #222; //sort
+$color2 : #ddd; //grå
+$color3 : #fff; //hvid
+$opacity : 0.8;
+
+.login{
+  margin: auto;
+}
+.loginform{
+  background-color:#5d5d5e;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+.inputlogin{
+  width:250px;
+  float:right;
+  border-color: $color3;
+  background-color: $color1;
+  color: $color3;
+  opacity: $opacity;
+}

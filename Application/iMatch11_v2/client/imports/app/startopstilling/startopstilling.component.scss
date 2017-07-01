@@ -1,0 +1,108 @@
+//Main
+$color1 : #222; //sort
+$color2 : #ddd; //grå
+$color3 : #fff; //hvid
+$color11 : #262626; /*Baggrund Mørk*/
+$opacity : 0.8;
+
+.Startopstilling{
+  margin-left: 7px;
+}
+.storknap{
+  width: 100%;
+}
+
+.selectstart{
+  padding: 6px;
+  border-radius: 5px;
+  opacity: 0.5;
+}
+.selectstart option {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.buttonstartSpil{
+  padding: 15px 30px;
+  width: 100%;
+  background-color: #5d5d5e;
+  border-width: 1px;
+  color: #fff;
+  opacity: 0.8;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 7px;
+}
+//banen
+
+.field {
+  background-image: url("https://raw.githubusercontent.com/CarlosBinino/Billeder/master/fieldtest.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+
+  border-radius: 5px;
+  height: 100vh;
+  min-width: 400px;
+}
+.fieldcontainer{
+  margin-left: 7px;
+  width: 40vw;
+}
+
+.test2 {
+  width: 100%;
+  height: 25vh;
+  color: $color1;
+  margin-left: 14px;
+  pre {
+    width: 80px;
+  }
+}
+.test ul {
+  height: auto;
+  width: 100%;
+  list-style-type: none;
+  color: $color11;
+}
+.test ul li {
+  opacity: 1;
+  margin-left: 7px;
+  display: inline;
+}
+
+.shirt{
+  width: 20px;
+  height: 20px;
+}
+
+//table
+.buttonstart{
+  min-width: 200px;
+  padding: 15px 30px;
+  width: 49%;
+  background-color: $color1;
+  border-width: 1px;
+  color: $color3;
+  opacity: 0.8;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 7px;
+}
+
+.tftable{
+  color: #fff;
+  background-color:#5d5d5e;
+  border-radius: 5px;
+  opacity: 0.8;
+  padding: 5px;
+  min-width: 40vw;
+}
+.colhead2 {
+  border-bottom-style:solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(217, 217, 217,0.1);
+}

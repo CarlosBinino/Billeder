@@ -1,0 +1,42 @@
+<div *ngIf="!user">Please, log in to change party</div>
+
+<form class="opretspil" [formGroup]="addForm" (ngSubmit)="addParty()">
+  <div>
+    <label>SpilType</label>
+    <input type="text" formControlName="SpilType">
+  </div>
+  <div>
+    <label>Type</label>
+    <input type="text" formControlName="Type">
+  </div>
+  <div>
+    <label>Deltagere</label>
+    <input type="number" formControlName="Deltagere">
+  </div>
+  <div>
+    <label>Pulje</label>
+    <input type="number" formControlName="Pulje">
+  </div>
+  <div>
+    <label>Tid</label>
+    <p>new Date("February 4, 2016 10:13:00")</p>
+    <input type="number" formControlName="Tid">
+  </div>
+  <div>
+    <label>NumPlayers</label>
+    <input type="number" formControlName="NumPlayers">
+  </div>
+  <button type="submit">Add</button>
+</form>
+
+<div>
+  <ul *ngFor="let game of games | async">
+    <li style="color:#fff;">{{game.SpilType}}</li>
+    <li style="color:#fff;">{{game.Type}}</li>
+    <li style="color:#fff;">{{game.Deltagere}}</li>
+    <li style="color:#fff;">{{game.Pulje}}</li>
+    <li style="color:#fff;">{{game.Tid}}</li>
+    <li style="color:#fff;">{{game.NumPlayers}}</li>
+    <li style="color:#fff;"><button (click)="removeGame(game)">X</button></li>
+  </ul>
+</div>

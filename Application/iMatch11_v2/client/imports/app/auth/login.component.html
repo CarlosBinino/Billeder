@@ -1,0 +1,29 @@
+<div class="login">
+    <h3 class="header">Log ind</h3>
+
+    <div class="loginform">
+      <form [formGroup]="loginForm" #f="ngForm" (ngSubmit)="login()"
+            layout="column" layout-fill layout-padding layout-margin>
+
+        <input class="inputlogin" type="email" placeholder="Email"></input>
+        <input class="inputlogin" type="password" placeholder="Adgangskode"></input>
+
+        <div layout="row">
+          <button class="buttonuser" type="button" [routerLink]="['/recover']">Glemt adgangskoden?</button>
+          <button class="buttonuser" type="button" type="submit" (click)="login()">Log ind</button>
+        </div>
+      </form>
+
+      <div [hidden]="error == ''">
+        <md-toolbar>
+          <p>{{ error }}</p>
+        </md-toolbar>
+      </div>
+
+      <hr>
+
+      <div>
+        <button class="buttonuser" type="button" [routerLink]="['/signup']">Opret bruger?</button>
+      </div>
+    </div>
+</div>

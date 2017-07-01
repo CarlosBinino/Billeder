@@ -1,0 +1,91 @@
+<md-sidenav-container class="example-sidenav-fab-container">
+
+<div flex layout="row" class="toolbar">
+  <md-toolbar class="flextoolbar">
+
+    <button type="button"
+            class="testnavbar-toggle"
+            (click)="toggleState()">
+        <i class="material-icons">menu</i>
+    </button>
+
+    <div class="fill-remaining-space1"></div>
+
+    <img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/logo-negativ.png" class="logo">
+
+    <div class="fill-remaining-space2"></div>
+
+    <button type="button" class="buttonside" (click)="sidenav.toggle()">
+       <h4>{{ user | displayName }}<span><i class="material-icons">home</i></span></h4>
+    </button>
+
+  </md-toolbar>
+</div>
+
+<div flex layout="row" class="flex-container topmargin">
+
+  <div flex="50" class="testcollapse testnavbar-collapse testcustom"
+       [ngClass]="{ 'in': isIn }">
+    <ul class="nav navbar-nav navcustom" [ngClass]="{'togglerow': isClassVisible,'togglerow2': isClassVisible2 }">
+       <li [routerLink]="['lobby']" (click)="lobbytog=true;startoptog=false;spillerstat=false;"><a>Lobby</a></li>
+       <li [routerLink]="['startop']" (click)="lobbytog=false;startoptog=true;spillerstat=false;"><a>Vælg startopstilling</a></li>
+       <li (click)="isClassVisible = !isClassVisible;"><a>Statistik</a></li>
+       <li [routerLink]="['spillerstat']" class="spilstat" (click)="lobbytog=false;startoptog=false;spillerstat=true;"><a>Spillerstatistik</a></li>
+       <li><a>Holdstatistik</a></li>
+       <li><a>Livescore</a></li>
+       <li (click)="isClassVisible2 = !isClassVisible2;"><a>Om spillet</a></li>
+       <li><a>Om scoren</a></li>
+       <li><a>Præmiestrukturen</a></li>
+       <li><a>Om spillet</a></li>
+       <li [routerLink]="['opretspil']"><a>Opret spil</a></li>
+    </ul>
+<!--
+    <button class="accordion" (click)="isClassVisible = !isClassVisible;">Section 1</button>
+      <div class="panel" [ngClass]="{'toggleacc': isClassVisible }">
+        <p>Lorem ipsum...</p>
+      </div>
+
+    <button class="accordion">Section 2</button>
+      <div class="panel">
+        <p>Lorem ipsum...</p>
+      </div>
+
+    <button class="accordion">Section 3</button>
+      <div class="panel">
+        <p>Lorem ipsum...</p>
+      </div>
+-->
+
+  </div>
+
+  <div flex="50">
+
+    <router-outlet></router-outlet>
+<!--
+    <div *ngIf="lobbytog">
+      <lobby></lobby>
+    </div>
+    <div *ngIf="startoptog">
+      <startop></startop>
+    </div>
+    <div *ngIf="spillerstat">
+      <spillerstat></spillerstat>
+    </div>
+-->
+
+  </div>
+</div>
+
+<md-sidenav #sidenav mode="side" opened="false" align="end">
+
+  <div [hidden]="user">
+    <div><button class="buttonauth buttonauthtop" type="button" [routerLink]="['/login']">Log ind</button></div>
+    <div><button class="buttonauth" type="button" [routerLink]="['/signup']">Opret bruger</button></div>
+  </div>
+  <div [hidden]="!user">
+    <span>{{ user | displayName }}</span>
+    <button class="buttonauth" type="button" (click)="logout()">Log ud</button>
+  </div>
+
+</md-sidenav>
+</md-sidenav-container>

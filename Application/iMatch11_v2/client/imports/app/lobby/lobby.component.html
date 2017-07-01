@@ -1,0 +1,111 @@
+<div flex layout="row" class="flex-container">
+
+  <div flex="50" class="lobbyTable">
+    <h2 class="header">Lobby</h2>
+    <login-buttons></login-buttons>
+    <div class="btn-group">
+      <label class="btn" (click)="lobbyQuery=''">Alle</label>
+      <label class="btn" (click)="lobbyQuery='Dagens'">Dagens</label>
+      <label class="btn" (click)="lobbyQuery='Runde';">Runde</label>
+      <label class="btn" (click)="lobbyQuery='Saeson'">Sæson</label>
+    </div>
+
+<div class="tableskal">
+
+      <md-sidenav-container class="example-sidenav-fab-container">
+
+      <table class="tftable" [mfData]="games | async | lobbyFilter : lobbyQuery" #mf="mfDataTable" [mfRowsOnPage]="10"
+            [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+        <thead>
+          <tr class="colhead2">
+            <th><mfDefaultSorter by="SpilType">Spiltype</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="Deltagere">Deltagere</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="Pulje">Præmiepulje</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="Tid">Starter om</mfDefaultSorter></th>
+            <th><mfDefaultSorter by="Dato">Starter d.</mfDefaultSorter></th>
+          </tr>
+        </thead>
+        <tbody class="colbody">
+        <tr *ngFor="let s of mf.data" (click)="sidenav.toggle()" (click)="selectedValue(s)">
+          <td>{{s.SpilType}} <span>{{s.Type}}</span></td>
+          <td>{{s.Deltagere}}</td>
+          <td>{{s.Pulje}}</td>
+          <td>{{s.Tid}}</td>
+          <td>{{objDate | date :'medium'}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="6" class="colbut">
+                <mfBootstrapPaginator [rowsOnPageSet]="[10,25,50]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+        </tfoot>
+      </table>
+
+      <md-sidenav #sidenav mode="side" opened="false">
+        <div class="VaelgSpil" *ngFor="let info of sidenavdata">
+          <h5>{{info.SpilType}}</h5>
+          <h5>{{info.Deltagere}}</h5>
+          <h5>{{info.Pulje}}</h5>
+          <h5>{{info.Tid}}</h5>
+          <hr></hr>
+          <button type="button" class="buttonVaelgSpil" (click)="gotostartop()" (click)="gamecreated(info)">
+            Vælg startopstilling
+          </button>
+        </div>
+      </md-sidenav>
+
+    </md-sidenav-container>
+</div>
+
+  </div>
+
+  <div flex="50" class="MineSpil">
+    <h2 class="headerminespil">Mine spil</h2>
+
+    <div class="btn-group btnminespil">
+      <label class="btn">Alle</label>
+      <label class="btn">Afventer</label>
+      <label class="btn">Vundet</label>
+      <label class="btn">Tabt</label>
+    </div>
+
+    <div class="boks">
+      <div class="boksheaderA">
+        <h5>Afventer</h5>
+      </div>
+      <div class="boksboby">
+        <p>Indskud: 100 kr.</p>
+        <p>Mulig gevindst: 1000 kr.</p>
+        <hr>
+        <p>Din placering: 2/40</p>
+      </div>
+    </div>
+
+    <div class="boks">
+      <div class="boksheaderV">
+        <h5>Vundet</h5>
+      </div>
+      <div class="boksboby">
+        <p>Indskud: 100 kr.</p>
+        <p>Mulig gevindst: 1000 kr.</p>
+        <hr>
+        <p>Din placering: 2/40</p>
+      </div>
+    </div>
+
+    <div class="boks">
+      <div class="boksheaderT">
+        <h5>Tabt</h5>
+      </div>
+      <div class="boksboby">
+        <p>Indskud: 100 kr.</p>
+        <p>Mulig gevindst: 1000 kr.</p>
+        <hr>
+        <p>Din placering: 2/40</p>
+      </div>
+    </div>
+  </div>
+
+</div>

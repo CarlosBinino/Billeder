@@ -1,0 +1,191 @@
+<div class="Startopstilling">
+  <h2 class="header">Vælg startopstilling</h2>
+
+  <div flex layout="row" class="flex-container">
+
+    <div flex="50" class="tablecontainer">
+
+      <div class="storknap">
+        <button type="button" class="buttonstart" (click)="gotostat()">
+         Spillersøgning
+        </button>
+
+        <button type="button" class="buttonstart">
+         Se kampprogram
+        </button>
+      </div>
+
+      <div>
+        <div droppable [dragOverClass]="'drag-over-border'" [dropScope]="['Angriber', 'Midtbane','Forsvar','Målmand']"
+         (onDrop)="onPlayerDrop($event)">
+          <table class="tftable" [mfData]="spiller" #mf="mfDataTable" [mfRowsOnPage]="20"
+              [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+              <thead>
+                <tr class="colhead2">
+                  <th><mfDefaultSorter by="Position">Position</mfDefaultSorter></th>
+                  <th><mfDefaultSorter by="Player">Spiller</mfDefaultSorter></th>
+                  <th><mfDefaultSorter by="total_matches">Kampe</mfDefaultSorter></th>
+                  <th><mfDefaultSorter by="">Rating</mfDefaultSorter></th>
+                </tr>
+              </thead>
+              <tbody class="colbody">
+                <tr *ngFor="let s of mf.data"
+                  draggable
+                  [dragImage] ="'https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png'"
+                  [dragClass]="'drag-over'"
+                  [dragData]="s"
+                  [dragScope]="s.Position">
+                    <td>{{s.Position}}</td>
+                    <td>{{s.Player}}</td>
+                    <td>{{s.total_matches}}</td>
+                    <td>7</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="1" class="colbut">
+                      <mfBootstrapPaginator [rowsOnPageSet]="[50]"></mfBootstrapPaginator>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+      </div>
+    </div>
+
+    <div flex="50" class="fieldcontainer">
+      <button type="button" class="buttonstartSpil">
+       Spil
+      </button>
+
+      <div class="field">
+
+        <select class="selectstart" [(ngModel)]="opstilling" placeholde="Formation: 4-4-2">
+           <option value="4-4-2">Formation: 4-4-2</option>
+           <option value="4-3-3">Formation: 4-3-3</option>
+           <option value="5-4-1">Formation: 5-4-1</option>
+           <option value="5-3-2">Formation: 5-3-2</option>
+           <option value="3-4-3">Formation: 3-4-3</option>
+        </select>
+
+              <div class="row">
+
+                <div>
+                    <div class="test2" droppable  [dragOverClass]="'drag-target-border'" [dropScope]="'Angriber'"
+                      (onDrop)="onAngriberDrop($event)">
+                      <div class="test">
+                        <ul>
+                          <li draggable *ngFor="let item of droppedAngriber"
+                            [dragClass]="'drag-over'"
+                            [dragData]="item"
+                            [dragScope]="item.Position"
+                            class="list-group-item">
+                            {{item.Player}}
+                          </li>
+                        </ul>
+                      </div>
+                   </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div>
+                   <div class="test2" droppable [dragOverClass]="'drag-target-border-green'" [dropScope]="'Midtbane'"
+                     (onDrop)="onMidtbaneDrop($event)">
+                     <div class="panel-heading">
+                       <pre>Midtbane</pre>
+                     </div>
+                     <div class="test">
+                       <ul>
+                         <li draggable *ngFor="let item of droppedMidtbane"
+                            [dragClass]="'drag-over'"
+                            [dragData]="item"
+                            [dragScope]="item.Position"
+                            class="list-group-item">
+                            {{item.Player}}
+                         </li>
+                       </ul>
+                     </div>
+                   </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div>
+                   <div class="test2" droppable  [dragOverClass]="'drag-target-border'" [dropScope]="'Forsvar'"
+                     (onDrop)="onForsvarDrop($event)">
+                     <div class="panel-heading">
+                       <pre>Forsvar</pre>
+                     </div>
+                     <div class="test">
+                       <ul>
+                         <li draggable *ngFor="let item of droppedForsvar"
+                            [dragClass]="'drag-over'"
+                            [dragData]="item"
+                            [dragScope]="item.Position"
+                            class="list-group-item">
+                            {{item.Player}}
+                          </li>
+                        </ul>
+                      </div>
+                   </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div>
+                   <div class="test2" droppable  [dragOverClass]="'drag-target-border'" [dropScope]="'Målmand'"
+                     (onDrop)="onMaalmandDrop($event)">
+                     <div class="panel-heading">
+                       <pre>Målmand</pre>
+                     </div>
+                     <div class="test">
+                       <ul>
+                         <li draggable *ngFor="let item of droppedMaalmand"
+                            [dragClass]="'drag-over'"
+                            [dragData]="item"
+                            [dragScope]="item.Position"
+                            class="list-group-item">
+                            {{item.Player}}
+                          </li>
+                        </ul>
+                      </div>
+                   </div>
+                </div>
+
+              </div>
+<!--
+        <div class="test">
+          <ul>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+          </ul>
+          <ul>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+          </ul>
+          <ul>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+          </ul>
+          <ul>
+            <li class="list-group-item"><img src="https://raw.githubusercontent.com/CarlosBinino/Billeder/master/shirt.png" class="shirt"></li>
+          </ul>
+        </div>
+-->
+      </div>
+
+    </div>
+
+  </div>
+</div>

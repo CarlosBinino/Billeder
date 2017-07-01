@@ -1,0 +1,27 @@
+<div align="center">
+    <h3 class="header">Gendan adgangskode</h3>
+
+    <div>
+      <form [formGroup]="recoverForm" #f="ngForm" (ngSubmit)="recover()"
+      layout="column" layout-fill layout-padding layout-margin>
+
+        <input type="email" placeholder="Email"></input>
+
+        <div >
+          <button class="buttonuser" type="button" (click)="recover()">Recover</button>
+        </div>
+      </form>
+
+      <div [hidden]="error == ''">
+        <md-toolbar>
+          <p>{{ error }}</p>
+        </md-toolbar>
+      </div>
+
+      <hr>
+
+      <div >
+        <button class="buttonuser" type="button" [routerLink]="['/login']">Remember your password?</button>
+      </div>
+    </div>
+</div>
