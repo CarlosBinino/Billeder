@@ -1,0 +1,7 @@
+{
+  "name": "TreeApp4_ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
